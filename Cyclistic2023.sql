@@ -97,6 +97,7 @@ SELECT COUNT(*) AS total_riders
 FROM tripdata_2023;
 
 -- TOTAL CASUAL AND MEMBER RIDERS
+
 SELECT member_casual,
 COUNT(*) AS total_riders
 FROM tripdata_2023
@@ -109,14 +110,12 @@ AVG(ride_length)::time(0) AS average_ride_length
 FROM tripdata_2023
 GROUP BY member_casual;
 
-
 -- WHAT TYPE OF BIKES ARE POPULAR AMONG THE RIDERS
 
 SELECT rideable_type, member_casual,
 COUNT(*) AS total_riders
 FROM tripdata_2023
 GROUP BY member_casual, rideable_type;
-
 
 -- ADDING DAY OF THE WEEK, MONTH, AND TIME OF DAY COLUMN
 
@@ -145,8 +144,6 @@ GROUP BY month, member_casual
 HAVING member_casual = 'casual'
 ORDER BY total_casual_riders DESC;
 
-
-
 -- TOTAL CASUAL RIDERS BY TIME OF THE DAY
 
 SELECT time_of_the_day, 
@@ -157,7 +154,6 @@ GROUP BY time_of_the_day, member_casual
 HAVING member_casual = 'casual'
 ORDER BY total_casual_riders DESC;
 
-
 -- TOTAL CASUAL RIDERS BY DAY OF WEEK
 
 SELECT day_of_week, 
@@ -167,4 +163,3 @@ FROM tripdata_2023
 GROUP BY day_of_week, member_casual
 HAVING member_casual = 'casual'
 ORDER BY total_casual_riders DESC;
-
